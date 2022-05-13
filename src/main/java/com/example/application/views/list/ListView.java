@@ -17,7 +17,8 @@ import com.vaadin.flow.router.Route;
 public class ListView extends VerticalLayout {
 	Grid<Contact> grid = new Grid<>(Contact.class);
 	TextField filterText = new TextField();
-	ContactForm form;
+	ContactForm form;//왜 에러?
+	
 	CrmService service;
 
 	public ListView(CrmService service) {
