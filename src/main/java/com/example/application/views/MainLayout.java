@@ -38,6 +38,8 @@ public class MainLayout extends AppLayout {
 		RouterLink listLink = new RouterLink("전체 목록", ListView.class);
 		listLink.setHighlightCondition(HighlightConditions.sameLocation());
 
-		addToDrawer(new VerticalLayout(listLink, new RouterLink("대시 보드", DashboardView.class)));
+		addToDrawer(new VerticalLayout(listLink
+				//, new RouterLink("대시 보드", DashboardView.class
+						));
 	}
 }

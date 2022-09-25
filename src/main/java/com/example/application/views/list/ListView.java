@@ -17,7 +17,7 @@ import com.vaadin.flow.router.Route;
 public class ListView extends VerticalLayout {
 	Grid<Contact> grid = new Grid<>(Contact.class);
 	TextField filterText = new TextField();
-	ContactForm form;//왜 에러?
+	//ContactForm form;//왜 에러?
 	
 	CrmService service;
 
@@ -34,33 +34,33 @@ public class ListView extends VerticalLayout {
 	}
 
 	private HorizontalLayout getContent() {
-		HorizontalLayout content = new HorizontalLayout(grid, form);
+		HorizontalLayout content = new HorizontalLayout(grid/* , form */);
 		content.setFlexGrow(2, grid);
-		content.setFlexGrow(1, form);
+		//content.setFlexGrow(1, form);
 		content.addClassNames("content");
 		content.setSizeFull();
 		return content;
 	}
 
 	private void configureForm() {
-		form = new ContactForm(service.findAllCompanies(), service.findAllStatuses());
-		form.setWidth("25em");
-	    form.addListener(ContactForm.SaveEvent.class, this::saveContact); 
-	    form.addListener(ContactForm.DeleteEvent.class, this::deleteContact); 
-	    form.addListener(ContactForm.CloseEvent.class, e -> closeEditor());
+//		form = new ContactForm(service.findAllCompanies(), service.findAllStatuses());
+//		form.setWidth("25em");
+//	    form.addListener(ContactForm.SaveEvent.class, this::saveContact); 
+//	    form.addListener(ContactForm.DeleteEvent.class, this::deleteContact); 
+//	    form.addListener(ContactForm.CloseEvent.class, e -> closeEditor());
 	}
 
-	private void saveContact(ContactForm.SaveEvent event) {
-	    service.saveContact(event.getContact());
-	    updateList();
-	    closeEditor();
-	}
-
-	private void deleteContact(ContactForm.DeleteEvent event) {
-	    service.deleteContact(event.getContact());
-	    updateList();
-	    closeEditor();
-	}
+//	private void saveContact(ContactForm.SaveEvent event) {
+//	    service.saveContact(event.getContact());
+//	    updateList();
+//	    closeEditor();
+//	}
+//
+//	private void deleteContact(ContactForm.DeleteEvent event) {
+//	    service.deleteContact(event.getContact());
+//	    updateList();
+//	    closeEditor();
+//	}
 	
 	private void configureGrid() {
 		grid.addClassNames("contact-grid");
@@ -91,15 +91,15 @@ public class ListView extends VerticalLayout {
 		if (contact == null) {
 			closeEditor();
 		} else {
-			form.setContact(contact);
-			form.setVisible(true);
+//			form.setContact(contact);
+//			form.setVisible(true);
 			addClassName("editing");
 		}
 	}
 
 	private void closeEditor() {
-		form.setContact(null);
-		form.setVisible(false);
+//		form.setContact(null);
+//		form.setVisible(false);
 		removeClassName("editing");
 	}
 
